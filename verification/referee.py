@@ -11,9 +11,12 @@ api.add_listener(
     CheckiOReferee(
         tests=TESTS,
         cover_code={
-            'python-27': cover_codes.unwrap_args,  # or None
-            'python-3': cover_codes.unwrap_args
+            'python-3': cover_codes.unwrap_args,
+            'js-node': cover_codes.js_unwrap_args
         },
         checker=checkers.float_comparison(2),
-        function_name="simple_areas"
+        function_name={
+            "python": "simple_areas",
+            "js": "simpleAreas"
+        }
     ).on_ready)
